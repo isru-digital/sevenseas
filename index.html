@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<!--
+  SEVEN SEAS - concept demo landing page.
+  Built by ISRU - Itzik Uziel. NOT an official Electra Megurim site.
+  All project facts are quoted from the public project page at electra-megurim.com.
+  Visuals are AI-generated cinematic interpretations, for concept demonstration only.
+-->
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SEVEN SEAS - שדה דב מערב, תל אביב | הדמיית קונספט מאת ISRU</title>
+  <meta name="description" content="Seven Seas - קומפלקס מגורי היוקרה הראשון בשדה דב מערב, רק 300 מטר מהים. 3 מגדלים, 437 דירות. הדמיית קונספט אינטראקטיבית מאת ISRU - איציק עוזיאל." />
+  <meta name="theme-color" content="#100b07" />
+  <meta name="robots" content="noindex" />
+
+  <meta property="og:title" content="SEVEN SEAS - שדה דב מערב | קונספט מאת ISRU" />
+  <meta property="og:description" content="קומפלקס מגורי היוקרה הראשון בשדה דב מערב - רק 300 מטר מהים. חוויית סקרול קולנועית. הדמיית קונספט מאת ISRU." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://isru-digital.github.io/sevenseas/media/poster.jpg" />
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%23100b07'/%3E%3Ctext x='50' y='66' font-size='44' text-anchor='middle' fill='%23e8a34f' font-family='Georgia,serif'%3E7%3C/text%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300;400;500;700;900&family=Heebo:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="preload" as="image" href="media/poster.jpg" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <script>document.documentElement.classList.add("js");</script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "SEVEN SEAS - הדמיית קונספט",
+    "description": "הדמיית קונספט אינטראקטיבית לפרויקט Seven Seas בשדה דב מערב, תל אביב. נבנתה ע\"י ISRU - איציק עוזיאל. אינה האתר הרשמי של אלקטרה מגורים.",
+    "creator": { "@type": "Person", "name": "Itzik Uziel", "affiliation": "ISRU" }
+  }
+  </script>
+</head>
+<body id="top">
+
+  <a class="skip-link" href="#stats">דלג לתוכן</a>
+
+  <!-- Cinematic preloader -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader__inner">
+      <span class="loader__brand">SEVEN SEAS</span>
+      <span class="loader__sub">שדה דב מערב · תל אביב</span>
+      <span class="loader__line"></span>
+      <span class="loader__credit">הדמיית קונספט מאת ISRU</span>
+    </div>
+  </div>
+
+  <div class="progress" id="progress" aria-hidden="true"></div>
+
+  <!-- Concept ribbon: always visible, states clearly who made this -->
+  <a class="concept-ribbon" href="#isru" data-link>
+    <span class="concept-ribbon__tag">אתר קונספט</span>
+    <span class="concept-ribbon__by">נבנה ע"י ISRU - איציק עוזיאל</span>
+  </a>
+
+  <!-- NAV -->
+  <header class="nav" id="nav">
+    <a class="nav__brand" href="#top">
+      <span class="nav__brand-main">SEVEN SEAS</span>
+      <span class="nav__brand-sub">שדה דב מערב</span>
+    </a>
+    <nav class="nav__links" id="navLinks" aria-label="ניווט ראשי">
+      <a href="#project" data-link>הפרויקט</a>
+      <a href="#lifestyle" data-link>לייף סטייל</a>
+      <a href="#district" data-link>הרובע</a>
+      <a href="#contact" data-link>צור קשר</a>
+      <a href="#contact" class="btn btn--book" data-link>לפריסייל</a>
+    </nav>
+    <button class="nav__toggle" id="navToggle" aria-label="פתח תפריט" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <!-- SCENE DOTS -->
+  <nav class="dots" id="dots" aria-label="ניווט סצנות">
+    <a href="#film" data-scene="0" aria-label="סצנה 1 - הים"></a>
+    <a href="#film" data-scene="1" aria-label="סצנה 2 - המיקום"></a>
+    <a href="#film" data-scene="2" aria-label="סצנה 3 - הלובי"></a>
+    <a href="#film" data-scene="3" aria-label="סצנה 4 - הדירות"></a>
+    <a href="#film" data-scene="4" aria-label="סצנה 5 - האדריכלות"></a>
+    <a href="#film" data-scene="5" aria-label="סצנה 6 - הבריכה"></a>
+    <a href="#film" data-scene="6" aria-label="סצנה 7 - פריסייל"></a>
+  </nav>
+
+  <main>
+
+    <!-- THE FILM -->
+    <section class="film" id="film">
+      <div class="film__stage">
+        <video class="film__video" id="filmVideo" muted playsinline preload="auto"
+               data-src="media/film.mp4" data-src-m="media/film_m.mp4"
+               poster="media/poster.jpg"></video>
+        <div class="film__scrim"></div>
+
+        <div class="caps">
+          <!-- 1 - the open sea -->
+          <div class="cap cap--center is-active" data-scene="0">
+            <div class="cap__inner"><div class="cap__text">
+              <p class="eyebrow">אלקטרה מגורים · דן נדל"ן</p>
+              <h1 class="hero__title">SEVEN SEAS</h1>
+              <p class="hero__script">קומפלקס מגורי היוקרה הראשון בשדה דב מערב</p>
+              <p class="hero__tagline">רק 300 מטר מהים</p>
+              <a class="btn btn--book" href="#contact" data-link>לפריסייל</a>
+            </div></div>
+          </div>
+          <!-- 2 - the shoreline -->
+          <div class="cap cap--right" data-scene="1">
+            <div class="cap__inner"><div class="cap__text">
+              <p class="eyebrow">המיקום</p>
+              <h2 class="scene__title">3 דקות הליכה מקו החוף</h2>
+              <p class="scene__body">בסמוך לתחנת הרכבת הקלה, במפגש שבין אבן גבירול למדרחוב איינשטיין - מדרחוב ירוק ומטופח המוביל בהליכה ישירה אל הים.</p>
+            </div></div>
+          </div>
+          <!-- 3 - the lobby -->
+          <div class="cap cap--left" data-scene="2">
+            <div class="cap__inner"><div class="cap__text">
+              <p class="eyebrow">החללים הציבוריים</p>
+              <h2 class="scene__title">בהשראת הקצב של מיאמי</h2>
+              <p class="scene__body">את עיצוב הפנים מוביל אדריכל העל הבינלאומי קובי קרפ - חללים יוקרתיים, רחבי ידיים, בקו נקי ועכשווי.</p>
+            </div></div>
+          </div>
+          <!-- 4 - the apartment -->
+          <div class="cap cap--right" data-scene="3">
+            <div class="cap__inner"><div class="cap__text">
+              <p class="eyebrow">הדירות</p>
+              <h2 class="scene__title">אור טבעי ופתיחות</h2>
+              <p class="scene__body">437 דירות בתמהיל מגוון: 2-6 חדרים, דירות גן ופנטהאוזים - התכנון האיכותי ביותר ברובע.</p>
+            </div></div>
+          </div>
+          <!-- 5 - the facade -->
+          <div class="cap cap--left" data-scene="4">
+            <div class="cap__inner"><div class="cap__text">
+              <p class="eyebrow">האדריכלות · יסקי מור סיון</p>
+              <h2 class="scene__title">מרפסות-ענק אל הים</h2>
+              <p class="scene__body">שפה אדריכלית מודרנית ויוקרתית, בדגש על החיבור ההרמוני בין העיר לים. מרפסות-ענק שרובן פונות מערבה, עם נוף פתוח נצחי אל הים.</p>
+            </div></div>
+          </div>
+          <!-- 6 - the pool -->
+          <div class="cap cap--right" data-scene="5">
+            <div class="cap__inner"><div class="cap__text">
+              <p class="eyebrow">יוקרה ולייף סטייל</p>
+              <h2 class="scene__title">בריכה מול הים</h2>
+              <p class="scene__body">בריכת שחייה חיצונית ענקית המשקיפה אל הים, בריכה פנימית מקורה וחדר כושר גדול ומאובזר.</p>
+            </div></div>
+          </div>
+          <!-- 7 - CTA -->
+          <div class="cap cap--center cap--cta" data-scene="6">
+            <div class="cap__inner"><div class="cap__text">
+              <p class="eyebrow">בקרוב הפריסייל</p>
+              <h2 class="scene__title scene__title--xl">SEVEN SEAS</h2>
+              <p class="hero__tagline">שדה דב מערב · תל אביב</p>
+              <div class="cta__actions">
+                <a class="btn btn--book btn--lg" href="tel:*6383">6383* לתיאום שיחה</a>
+                <a class="btn btn--ghost btn--lg" href="#contact" data-link>לפרטים נוספים</a>
+              </div>
+            </div></div>
+          </div>
+        </div>
+
+        <a class="scroll-cue" id="scrollCue" href="#stats" aria-label="גלול">
+          <span class="scroll-cue__label">גלול</span>
+          <span class="scroll-cue__line"></span>
+        </a>
+      </div>
+    </section>
+
+    <!-- OFFICIAL NUMBERS - 3D tilt stat cards -->
+    <section class="stats" id="stats">
+      <div class="section-head">
+        <p class="eyebrow">המספרים</p>
+        <h2 class="section-title">הפרויקט במבט אחד</h2>
+      </div>
+      <div class="stats__grid">
+        <article class="stat tilt reveal-item">
+          <span class="stat__num" data-count="3">0</span>
+          <span class="stat__label">מגדלים</span>
+        </article>
+        <article class="stat tilt reveal-item">
+          <span class="stat__num" data-count="437">0</span>
+          <span class="stat__label">דירות</span>
+        </article>
+        <article class="stat tilt reveal-item">
+          <span class="stat__num"><span dir="ltr">2-6</span></span>
+          <span class="stat__label">חדרים, דירות גן ופנטהאוזים</span>
+        </article>
+        <article class="stat tilt reveal-item">
+          <span class="stat__num"><span class="stat__count" data-count="300">0</span><span class="stat__unit">מ'</span></span>
+          <span class="stat__label">מהים בלבד</span>
+        </article>
+      </div>
+    </section>
+
+    <!-- THE PROJECT -->
+    <section class="project" id="project">
+      <div class="project__inner">
+        <div class="project__text">
+          <p class="eyebrow">אודות הפרויקט</p>
+          <h2 class="section-title">יוקרה אורבנית על חוף הים</h2>
+          <p class="project__lead">Seven Seas הוא קומפלקס מגורי יוקרה חדש וייחודי מבית אלקטרה מגורים ודן נדל"ן, הממוקם בשדה דב מערב במרחק של 300 מטר בלבד מקו המים.</p>
+          <p class="project__body">הפרויקט, המתגאה באדריכלות בינלאומית מושקעת ועכשווית, כולל 437 יחידות דיור הנהנות רובן ממרפסות-ענק ומנוף פתוח אל הים. בזכות לוקיישן יוצא דופן, דירות 2-6 חדרים עם תכנון מושלם ושלל חללים משותפים מעוצבים, מציע Seven Seas חווית מגורים אלגנטית בסטנדרט שאין דומה לו.</p>
+        </div>
+        <div class="project__credits">
+          <article class="credit reveal-item">
+            <h3>יזמות</h3>
+            <p>אלקטרה מגורים · דן נדל"ן</p>
+          </article>
+          <article class="credit reveal-item">
+            <h3>אדריכלות</h3>
+            <p>יסקי מור סיון</p>
+            <span>שפה אדריכלית מודרנית ויוקרתית, חיבור הרמוני בין העיר לים</span>
+          </article>
+          <article class="credit reveal-item">
+            <h3>עיצוב פנים</h3>
+            <p>קובי קרפ</p>
+            <span>פרשנות אורבנית בהשראת הלייף-סטייל והקצב של מיאמי</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- LIFESTYLE - 3D tilt image cards -->
+    <section class="lifestyle" id="lifestyle">
+      <div class="section-head">
+        <p class="eyebrow">יוקרה ולייף סטייל</p>
+        <h2 class="section-title">שגרת חיים בסטנדרט אחר</h2>
+        <p class="section-sub">הדמיות AI קונספטואליות - להמחשה בלבד</p>
+      </div>
+      <div class="lifestyle__grid">
+        <article class="amenity tilt reveal-item">
+          <div class="amenity__media"><img src="media/card_pool.jpg" alt="בריכת השחייה החיצונית משקיפה אל הים - הדמיית קונספט" loading="lazy" width="800" height="500" /></div>
+          <div class="amenity__text">
+            <h3>בריכת שחייה חיצונית ענקית</h3>
+            <p>משקיפה אל הים הסמוך, לצד בריכה נוספת פנימית ומקורה.</p>
+          </div>
+        </article>
+        <article class="amenity tilt reveal-item">
+          <div class="amenity__media"><img src="media/card_lobby.jpg" alt="לובי הקומפלקס בעיצוב קובי קרפ - הדמיית קונספט" loading="lazy" width="800" height="500" /></div>
+          <div class="amenity__text">
+            <h3>חללים משותפים מעוצבים</h3>
+            <p>נוכחות בינלאומית ברורה, בקו נקי ועכשווי - עיצוב: קובי קרפ.</p>
+          </div>
+        </article>
+        <article class="amenity tilt reveal-item">
+          <div class="amenity__media"><img src="media/card_apartment.jpg" alt="סלון דירה עם חלונות אל הים - הדמיית קונספט" loading="lazy" width="800" height="500" /></div>
+          <div class="amenity__text">
+            <h3>חדר כושר גדול ומאובזר</h3>
+            <p>מתקנים המשתלבים בשגרת החיים ומעצימים חוויית מגורים עירונית, רגועה ומדויקת.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- THE DISTRICT -->
+    <section class="district" id="district">
+      <div class="district__inner">
+        <div class="district__text">
+          <p class="eyebrow">רובע שדה דב</p>
+          <h2 class="section-title">הרובע החדש והמבוקש בישראל</h2>
+          <p class="project__body">על קו החוף של צפון תל אביב נולד רובע שדה דב - מגדלי מגורים יוקרתיים, שטחי תעסוקה מתקדמים, מסחר איכותי ומבני ציבור, לצד פארקים רחבי ידיים וטיילת חוף מודרנית.</p>
+          <p class="project__body">שדה דב מערב, המתחם הקרוב ביותר לקו החוף, הוא האזור שבו טרם שווקו פרויקטים למגורים - ומכאן ייחודו והביקוש הגבוה שהוא מייצר.</p>
+        </div>
+        <div class="district__stats">
+          <div class="dstat reveal-item"><strong data-count="45000">0</strong><span>תושבים</span></div>
+          <div class="dstat reveal-item"><strong data-count="11500">0</strong><span>יחידות דיור</span></div>
+          <div class="dstat reveal-item"><strong><span data-count="500000">0</span> מ"ר</strong><span>מבני ציבור</span></div>
+          <div class="dstat reveal-item"><strong><span data-count="365000">0</span> מ"ר</strong><span>שטחים ציבוריים פתוחים</span></div>
+          <div class="dstat reveal-item"><strong><span data-count="330000">0</span> מ"ר</strong><span>שטחי תעסוקה</span></div>
+          <div class="dstat reveal-item"><strong><span data-count="125000">0</span> מ"ר</strong><span>שטחי מסחר</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+      <div class="contact__inner">
+        <p class="eyebrow">בקרוב הפריסייל</p>
+        <h2 class="section-title">הרצועה האחרונה על קו המים מחכה</h2>
+        <p class="section-sub">פרטי ההתקשרות הרשמיים של הפרויקט:</p>
+        <div class="cta__actions">
+          <a class="btn btn--book btn--lg" href="tel:*6383">6383* לתיאום שיחה</a>
+          <a class="btn btn--ghost btn--lg" href="mailto:Residents@electra.co.il">Residents@electra.co.il</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ISRU CREDIT -->
+    <section class="isru" id="isru">
+      <div class="isru__inner">
+        <p class="isru__label">הדמיית קונספט</p>
+        <h2 class="isru__title">האתר הזה נבנה ע"י <strong>ISRU</strong></h2>
+        <p class="isru__name">איציק עוזיאל · בניית אתרי יוקרה קולנועיים</p>
+        <p class="isru__body">מה שגללתם עכשיו הוא הדגמה חיה: סרט רציף אחד שנע עם הגלילה של המבקר, בנוי מהדמיות AI ייעודיות לפרויקט. כך יכול להיראות דף הנחיתה הבא שלכם.</p>
+        <div class="cta__actions">
+          <a class="btn btn--book btn--lg" href="https://wa.me/972527444984" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.497.1-.198.05-.371-.025-.52-.074-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            דברו עם ISRU בוואטסאפ
+          </a>
+          <a class="btn btn--ghost btn--lg" href="mailto:info@isru.co.il">info@isru.co.il</a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer__brand">
+        <span class="footer__main">SEVEN SEAS</span>
+        <span class="footer__sub">שדה דב מערב · תל אביב</span>
+      </div>
+      <nav class="footer__links" aria-label="ניווט תחתון">
+        <a href="#top" data-link>למעלה</a>
+        <a href="#project" data-link>הפרויקט</a>
+        <a href="#district" data-link>הרובע</a>
+        <a href="#contact" data-link>צור קשר</a>
+      </nav>
+      <p class="footer__legal">אתר קונספט להדגמה בלבד, נבנה ע"י ISRU - איציק עוזיאל. אינו האתר הרשמי של אלקטרה מגורים ו/או דן נדל"ן ואינו מטעמן. הנתונים מצוטטים מהעמוד הפומבי של הפרויקט; ההדמיות באתר זה הן פרשנות AI קונספטואלית להמחשה בלבד ואינן הדמיות הפרויקט הרשמיות.</p>
+      <p class="footer__isru">ISRU · בניית אתרי יוקרה · <a href="https://wa.me/972527444984" target="_blank" rel="noopener">052-744-4984</a> · <a href="mailto:info@isru.co.il">info@isru.co.il</a></p>
+    </footer>
+
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

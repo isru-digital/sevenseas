@@ -323,62 +323,84 @@ html.js .loader.is-hidden { opacity: 0; visibility: hidden; pointer-events: none
 }
 .cap.is-active { opacity: 1; pointer-events: auto; }
 .cap__inner { width: 100%; max-width: var(--maxw); margin: 0 auto; }
-.cap__text { max-width: 620px; }
+.cap__text { max-width: 640px; position: relative; }
+/* soft dark halo behind each caption so text always reads on the busy film -
+   feathered, not a hard box, adds depth (the "3D backdrop" for the captions) */
+.cap__text::before {
+  content: "";
+  position: absolute;
+  inset: -38px -56px;
+  z-index: -1;
+  background: radial-gradient(115% 105% at 34% 50%,
+              rgba(8,5,3,0.78) 0%, rgba(8,5,3,0.5) 46%, rgba(8,5,3,0.18) 68%, transparent 82%);
+  filter: blur(10px);
+  pointer-events: none;
+}
 .cap--center { text-align: center; }
-.cap--center .cap__text { max-width: 880px; margin: 0 auto; }
+.cap--center .cap__text { max-width: 900px; margin: 0 auto; }
+.cap--center .cap__text::before { background: radial-gradient(105% 115% at 50% 50%,
+              rgba(8,5,3,0.72) 0%, rgba(8,5,3,0.45) 48%, rgba(8,5,3,0.16) 70%, transparent 84%); }
 .cap--center .scene__body,
 .cap--center .hero__tagline { margin-inline: auto; }
 /* RTL: "right"-variant hugs the start edge, "left"-variant hugs the end edge */
 .cap--left .cap__text { margin-inline-start: auto; text-align: start; }
+.cap--left .cap__text::before { background: radial-gradient(115% 105% at 66% 50%,
+              rgba(8,5,3,0.78) 0%, rgba(8,5,3,0.5) 46%, rgba(8,5,3,0.18) 68%, transparent 82%); }
 
-/* ---------- typography ---------- */
+/* ---------- typography ----------
+   Caption text sits over a moving film, so every level carries a layered
+   text-shadow (near shadow for edge contrast + far shadow for a soft plate =
+   the depth/"3D" read) and a slightly heavier weight than a print setting. */
 .eyebrow {
-  font-size: 0.82rem;
-  letter-spacing: 0.12em;
-  color: var(--gold);
+  font-size: clamp(0.95rem, 1.7vw, 1.12rem);
+  letter-spacing: 0.14em;
+  color: var(--gold-2);
   margin-bottom: 1.1rem;
-  font-weight: 500;
+  font-weight: 600;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.75), 0 2px 16px rgba(0,0,0,0.6);
 }
 
 .hero__title {
   font-family: var(--display);
-  font-weight: 300;
-  font-size: clamp(3.4rem, 12vw, 9.5rem);
+  font-weight: 500;
+  font-size: clamp(4rem, 13vw, 10rem);
   line-height: 0.95;
-  letter-spacing: 0.14em;
-  text-shadow: 0 2px 40px rgba(0,0,0,0.6), 0 0 70px rgba(232,163,79,0.14);
+  letter-spacing: 0.12em;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.55), 0 4px 30px rgba(0,0,0,0.6), 0 0 80px rgba(232,163,79,0.16);
 }
 .hero__script {
   font-family: var(--script);
-  font-weight: 400;
-  font-size: clamp(1.2rem, 3.6vw, 2.3rem);
+  font-weight: 500;
+  font-size: clamp(1.35rem, 3.8vw, 2.5rem);
   color: var(--gold-2);
   margin-top: 0.6rem;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.7), 0 2px 24px rgba(0,0,0,0.55);
 }
 .hero__tagline {
-  font-size: clamp(1.05rem, 2vw, 1.4rem);
-  color: var(--ink-dim);
+  font-size: clamp(1.2rem, 2.2vw, 1.5rem);
+  color: var(--ink);
   max-width: 34ch;
   margin-top: 1.4rem;
   margin-bottom: 2.2rem;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.7), 0 2px 20px rgba(0,0,0,0.5);
 }
 
 .scene__title {
   font-family: var(--display);
-  font-weight: 500;
-  font-size: clamp(2.4rem, 7vw, 5.4rem);
-  line-height: 1.06;
-  text-shadow: 0 2px 36px rgba(0,0,0,0.7);
+  font-weight: 600;
+  font-size: clamp(2.9rem, 7.6vw, 5.8rem);
+  line-height: 1.08;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.6), 0 4px 34px rgba(0,0,0,0.7);
   text-wrap: balance;
 }
-.scene__title--xl { font-size: clamp(3.4rem, 11vw, 8.5rem); letter-spacing: 0.12em; font-weight: 300; }
+.scene__title--xl { font-size: clamp(3.8rem, 12vw, 9rem); letter-spacing: 0.12em; font-weight: 500; }
 .scene__body {
-  font-size: clamp(1.02rem, 1.5vw, 1.24rem);
+  font-size: clamp(1.18rem, 1.7vw, 1.36rem);
   line-height: 1.75;
-  color: var(--ink-dim);
+  color: var(--ink);
   max-width: 46ch;
   margin-top: 1.2rem;
-  text-shadow: 0 1px 12px rgba(0,0,0,0.6);
+  text-shadow: 0 1px 4px rgba(0,0,0,0.7), 0 2px 18px rgba(0,0,0,0.55);
 }
 .cta__actions {
   display: flex;
@@ -810,12 +832,28 @@ html.js .loader.is-hidden { opacity: 0; visibility: hidden; pointer-events: none
   .concept-ribbon__by { display: none; } /* keep it compact on phones; full credit lives in the footer */
 }
 
+/* portrait phones: give captions the whole width and bump every level so the
+   film's text is comfortably legible on a small screen */
+@media (max-width: 600px) and (orientation: portrait) {
+  .cap { padding: 0 22px; align-items: center; }
+  .cap__text,
+  .cap--center .cap__text { max-width: 100%; }
+  .cap__text::before { inset: -26px -26px; }
+  .eyebrow { font-size: 1.05rem; letter-spacing: 0.1em; margin-bottom: 0.9rem; }
+  .hero__title { font-size: clamp(3.6rem, 19vw, 5.2rem); }
+  .hero__script { font-size: clamp(1.5rem, 6vw, 1.9rem); }
+  .hero__tagline { font-size: 1.3rem; }
+  .scene__title { font-size: clamp(2.7rem, 10.5vw, 3.6rem); line-height: 1.12; }
+  .scene__title--xl { font-size: clamp(3.4rem, 16vw, 5rem); }
+  .scene__body { font-size: 1.28rem; line-height: 1.72; margin-top: 1rem; }
+}
+
 @media (orientation: landscape) and (max-height: 600px) {
-  .hero__title { font-size: clamp(2.2rem, 13vh, 5rem); }
-  .scene__title { font-size: clamp(1.7rem, 9vh, 3.6rem); }
-  .scene__title--xl { font-size: clamp(2.2rem, 13vh, 5rem); }
-  .hero__script { font-size: clamp(1rem, 4.6vh, 1.7rem); }
-  .hero__tagline, .scene__body { font-size: clamp(0.92rem, 3.4vh, 1.15rem); }
+  .hero__title { font-size: clamp(2.4rem, 14vh, 5.2rem); }
+  .scene__title { font-size: clamp(1.9rem, 9.5vh, 3.8rem); }
+  .scene__title--xl { font-size: clamp(2.4rem, 13vh, 5.2rem); }
+  .hero__script { font-size: clamp(1.1rem, 4.8vh, 1.8rem); }
+  .hero__tagline, .scene__body { font-size: clamp(1.02rem, 3.6vh, 1.22rem); }
 }
 
 @media (prefers-reduced-motion: reduce) {

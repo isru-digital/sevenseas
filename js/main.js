@@ -225,4 +225,25 @@
   document.querySelectorAll("[data-link]").forEach(function (a) {
     a.addEventListener("click", function () { if (nav) nav.classList.remove("is-open"); });
   });
+
+  /* ---------- lead form (demo only - never actually sends) ---------- */
+  var leadForm = document.getElementById("leadForm");
+  var leadNote = document.getElementById("leadFormNote");
+  if (leadForm && leadNote) {
+    leadForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var name = leadForm.querySelector("#lf-name");
+      if (!leadForm.checkValidity()) {
+        var firstInvalid = leadForm.querySelector(":invalid");
+        if (firstInvalid) firstInvalid.focus();
+        return;
+      }
+      leadNote.hidden = false;
+      leadNote.textContent =
+        "תודה" + (name && name.value ? " " + name.value.trim().split(" ")[0] : "") +
+        "! זו גרסת דמו, ולכן הפרטים לא נשלחים. באתר אמיתי הפנייה תגיע ישירות ל-CRM / למייל של המשרד.";
+      leadForm.querySelectorAll("input, textarea").forEach(function (el) { el.value = ""; });
+      leadNote.scrollIntoView({ behavior: "smooth", block: "center" });
+    });
+  }
 })();

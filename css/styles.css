@@ -654,8 +654,67 @@ html.js .loader.is-hidden { opacity: 0; visibility: hidden; pointer-events: none
   padding: clamp(100px, 15vh, 180px) clamp(24px, 5vw, 64px);
   text-align: center;
 }
-.contact__inner { max-width: 780px; margin: 0 auto; }
+.contact__inner { max-width: 640px; margin: 0 auto; }
 .contact .section-sub { margin-top: 1.4rem; }
+
+/* ---------- lead form (demo) ---------- */
+.lead-form {
+  margin-top: 2.4rem;
+  text-align: start;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.lead-form__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.field { display: flex; flex-direction: column; gap: 7px; }
+.field label {
+  font-size: 0.86rem;
+  color: var(--ink-dim);
+}
+.field label span { color: var(--gold); }
+.field input,
+.field textarea {
+  font-family: var(--body);
+  font-size: 1rem;
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 13px 15px;
+  min-height: 48px;
+  transition: border-color 0.25s var(--ease), background 0.25s var(--ease);
+}
+.field textarea { min-height: 96px; resize: vertical; line-height: 1.6; }
+.field input::placeholder,
+.field textarea::placeholder { color: var(--ink-faint); }
+.field input:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--gold);
+  background: rgba(255, 255, 255, 0.06);
+}
+.field input:user-invalid { border-color: var(--terra); }
+.lead-form__submit { margin-top: 4px; align-self: flex-start; }
+.lead-form__note {
+  margin-top: 2px;
+  padding: 13px 16px;
+  border-radius: 8px;
+  background: rgba(232, 163, 79, 0.1);
+  border: 1px solid rgba(232, 163, 79, 0.4);
+  color: var(--gold-2);
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+.cta__actions--contact { margin-top: 2.4rem; }
+
+@media (max-width: 560px) {
+  .lead-form__row { grid-template-columns: 1fr; }
+  .lead-form__submit { align-self: stretch; }
+}
 
 /* ---------- ISRU credit section ---------- */
 .isru {

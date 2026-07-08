@@ -123,7 +123,7 @@
           <div class="cap cap--left" data-scene="2">
             <div class="cap__inner"><div class="cap__text">
               <p class="eyebrow">החללים הציבוריים</p>
-              <h2 class="scene__title">בהשראת הקצב של מיאמי</h2>
+              <h2 class="scene__title">בהשראת הלייף סטייל והקצב של מיאמי</h2>
               <p class="scene__body">את עיצוב הפנים מוביל אדריכל העל הבינלאומי קובי קרפ - חללים יוקרתיים, רחבי ידיים, בקו נקי ועכשווי.</p>
             </div></div>
           </div>
@@ -192,8 +192,8 @@
           <span class="stat__label">חדרים, דירות גן ופנטהאוזים</span>
         </article>
         <article class="stat tilt reveal-item">
-          <span class="stat__num"><span class="stat__count" data-count="300">0</span><span class="stat__unit">מ'</span></span>
-          <span class="stat__label">מהים בלבד</span>
+          <span class="stat__num" data-count="300">0</span>
+          <span class="stat__label">מטר מהים</span>
         </article>
       </div>
     </section>
@@ -283,9 +283,33 @@
       <div class="contact__inner">
         <p class="eyebrow">בקרוב הפריסייל</p>
         <h2 class="section-title">הרצועה האחרונה על קו המים מחכה</h2>
-        <p class="section-sub">פרטי ההתקשרות הרשמיים של הפרויקט:</p>
-        <div class="cta__actions">
-          <a class="btn btn--book btn--lg" href="tel:*6383">6383* לתיאום שיחה</a>
+        <p class="section-sub">השאירו פרטים ונחזור אליכם, או פנו ישירות:</p>
+
+        <form class="lead-form" id="leadForm" novalidate>
+          <div class="lead-form__row">
+            <div class="field">
+              <label for="lf-name">שם מלא <span aria-hidden="true">*</span></label>
+              <input id="lf-name" name="name" type="text" autocomplete="name" required placeholder="ישראל ישראלי" />
+            </div>
+            <div class="field">
+              <label for="lf-phone">טלפון <span aria-hidden="true">*</span></label>
+              <input id="lf-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required placeholder="050-0000000" />
+            </div>
+          </div>
+          <div class="field">
+            <label for="lf-email">אימייל <span aria-hidden="true">*</span></label>
+            <input id="lf-email" name="email" type="email" autocomplete="email" required placeholder="name@email.com" />
+          </div>
+          <div class="field">
+            <label for="lf-notes">הערות / מה חשוב לכם בדירה</label>
+            <textarea id="lf-notes" name="notes" rows="3" placeholder="מספר חדרים, קומה מועדפת, נוף לים..."></textarea>
+          </div>
+          <button class="btn btn--book btn--lg lead-form__submit" type="submit">שליחה</button>
+          <p class="lead-form__note" id="leadFormNote" role="status" aria-live="polite" hidden></p>
+        </form>
+
+        <div class="cta__actions cta__actions--contact">
+          <a class="btn btn--ghost btn--lg" href="tel:*6383">6383* לתיאום שיחה</a>
           <a class="btn btn--ghost btn--lg" href="mailto:Residents@electra.co.il">Residents@electra.co.il</a>
         </div>
       </div>

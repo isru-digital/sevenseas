@@ -77,11 +77,26 @@
   function bufferedEnd() {
     try { return video.buffered.length ? video.buffered.end(video.buffered.length - 1) : 0; } catch (e) { return 0; }
   }
-  function seek(t) {
+  /* Seek guard: the browser drops a currentTime set if a previous seek is still
+     in flight. Firing ~60 seeks/sec (the lerp) wastes almost all of them and the
+     film jumps. So we issue ONE seek at a time and, when it completes ('seeked'),
+     immediately chase the newest desired time. This paces seeking to the decoder's
+     real rate - smooth on fast flicks, no dropped seeks. */
+  var seeking = false, pendingT = null;
+  function doSeek(t) {
     if (!ready) return;
     var safe = Math.min(t, Math.max(0, bufferedEnd() - 0.05));
-    try { video.currentTime = safe; } catch (e) {}
+    if (Math.abs(safe - video.currentTime) < 0.01) return; /* already there */
+    if (seeking) { pendingT = safe; return; }               /* chase after 'seeked' */
+    seeking = true;
+    try { video.currentTime = safe; } catch (e) { seeking = false; }
   }
+  video.addEventListener("seeked", function () {
+    seeking = false;
+    if (pendingT !== null) { var t = pendingT; pendingT = null; doSeek(t); }
+  });
+  /* safety: if a seek silently never resolves, don't wedge forever */
+  function unwedge() { if (seeking && !video.seeking) { seeking = false; if (pendingT !== null) { var t = pendingT; pendingT = null; doSeek(t); } } }
 
   var lerpOn = !prefersReduced && typeof window.requestAnimationFrame === "function";
   var targetT = 0, currentT = 0, rafId = null;
@@ -89,16 +104,17 @@
     var diff = targetT - currentT;
     if (Math.abs(diff) < 0.008) {
       currentT = targetT;
-      seek(currentT);
+      doSeek(currentT);
       rafId = null;
       return;
     }
-    currentT += diff * 0.22;
-    seek(currentT);
+    currentT += diff * 0.24;      /* ease toward target - weighted, buttery */
+    doSeek(currentT);
+    unwedge();
     rafId = window.requestAnimationFrame(tick);
   }
   function requestSeek(t) {
-    if (!lerpOn) { seek(t); return; }
+    if (!lerpOn) { doSeek(t); return; }
     targetT = t;
     if (rafId === null) rafId = window.requestAnimationFrame(tick);
   }

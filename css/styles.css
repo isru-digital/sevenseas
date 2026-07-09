@@ -282,7 +282,7 @@ html.js .loader.is-hidden { opacity: 0; visibility: hidden; pointer-events: none
 .btn:active { transform: scale(0.97); }
 
 /* ---------- the film ---------- */
-.film { position: relative; height: 910vh; background: #000; } /* 7 scenes x 130vh - luxury pacing */
+.film { position: relative; height: 1040vh; background: #000; } /* 8 scenes x 130vh - luxury pacing */
 .film__stage {
   position: sticky;
   top: 0;

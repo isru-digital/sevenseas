@@ -20,7 +20,7 @@
 
   /* per-clip durations (seconds) - MUST match the real film; verified with ffprobe.
      8 scenes: sea, plaza, grand lobby, connecting corridor, enter home, facade, pool, CTA */
-  var DUR = [8.041667, 5.041667, 6.041667, 5.041667, 6.041667, 6.041667, 6.041667, 5.041667];
+  var DUR = [8.041667, 5.041667, 6.041667, 5.041667, 6.041667, 9.083008, 8.458333, 5.041667];
   var TOTAL = DUR.reduce(function (a, b) { return a + b; }, 0);
   var bands = (function () {
     var out = [], acc = 0;
